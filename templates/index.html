@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<header class="cabecalho">
+  <a href="{% url 'index' %}" class="cabecalho__link">
+    <h1 class="cabecalho__titulo">Rick's Guitars</h1>
+  </a>
+  <div class="cabecalho__busca">
+    <form class="cabecalho__form" action="{% url 'index' %}" method="POST">
+      {% csrf_token %}
+      <div class="form__buscar">
+        <input type="text" placeholder="O que você procura?" class="busca__input" name="consulta" />
+      </div>
+      <input class="form__botao" type="submit" value="Buscar" name="form-busca">
+    </form>
+  </div>
+</header>
+<main class="principal">
+  <section class="menu-lateral">
+    <form class="filtro-formulario" method="POST" action="{% url 'index' %}">
+      {% csrf_token %}
+      <div class="grupo-filtro">
+        {% for field in filtro.visible_fields %}
+        <label for="{{ field.id_for_label }}">{{field.label}}</label>
+        {{ field }} {% endfor %}
+      </div>
+      <br />
+      <input type="submit" class="btn btn-primary" value="Filtrar" name="form-filtro">
+    </form>
+  </section>
+  <section class="galeria">
+    <ul class="cards__lista">
+      {% if guitars %} {% for guitar in guitars %}
+      <li class="card">
+        <a href="#">
+          <img src="{{guitar.foto.url}}" alt="{{ guitar.modelo }}" class="card__imagem" />
+        </a>
+        <div class="card__informacao">
+          <p class="card__informacao__nome">{{ guitar.modelo }}</p>
+          <p class="card__informacao__preco">R$ {{ guitar.preco}}</p>
+        </div>
+      </li>
+      {% endfor %} {% else %}
+      <p>Nenhum resultado encontrado</p>
+      {% endif %}
+    </ul>
+  </section>
+</main>
+{% endblock %}
