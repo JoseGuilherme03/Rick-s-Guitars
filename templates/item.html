@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<section class="conteudo">
+    <div class="conteudo__item">
+        <img class="conteudo__item__img" src="/static/assets/imagens/guitarra-1.webp" alt="">
+    </div>
+    <div class="conteudo__container">
+        <div class="conteudo__item-informacao">
+            <h2 class="titulo-itens">Modelo</h2>
+            <ul class="item-lista-informacao">
+                <li class="lista-informacao__item">Preço: 44545</li>
+                <li class="lista-informacao__item">Descrição: sdadadas</li>
+            </ul>
+        </div>
+        <div class="conteudo__botoes">
+            <button class="btn btn-primary btn-lg">Editar</button>
+            <button class="btn btn-danger btn-lg">Excluir</button>
+        </div>
+    </div>
+</section>
+{% endblock %}

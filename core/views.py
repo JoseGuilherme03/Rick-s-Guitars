@@ -37,6 +37,12 @@ def index(request):
     return render(request, "index.html", {"guitars": guitars, "filtro": filtro})
 
 
-def cadastra_guitar(request):
+def cadastra_item(request):
     form = CadastraGuitarForm()
     return render(request, "cadastro.html", {"form": form})
+
+
+def edita_item(request):
+    return render(request, "item.html")
+
+
