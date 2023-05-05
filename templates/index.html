@@ -1,20 +1,14 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
-<header class="cabecalho">
-  <a href="{% url 'index' %}" class="cabecalho__link">
-    <h1 class="cabecalho__titulo">Rick's Guitars</h1>
-  </a>
-  <div class="cabecalho__busca">
+<main class="principal">
+  <section class="menu-lateral">
     <form class="cabecalho__form" action="{% url 'index' %}" method="POST">
       {% csrf_token %}
       <div class="form__buscar">
         <input type="text" placeholder="O que você procura?" class="busca__input" name="consulta" />
       </div>
-      <input class="form__botao" type="submit" value="Buscar" name="form-busca">
+      <br />
+      <input class="btn btn-primary" type="submit" value="Buscar" name="form-busca">
     </form>
-  </div>
-</header>
-<main class="principal">
-  <section class="menu-lateral">
     <form class="filtro-formulario" method="POST" action="{% url 'index' %}">
       {% csrf_token %}
       <div class="grupo-filtro">
@@ -31,7 +25,7 @@
       {% if guitars %} {% for guitar in guitars %}
       <li class="card">
         <a href="#">
-          <img src="{{guitar.foto.url}}" alt="{{ guitar.modelo }}" class="card__imagem" />
+          <img src="{{ guitar.foto.url }}" alt="{{ guitar.modelo }}" class="card__imagem" />
         </a>
         <div class="card__informacao">
           <p class="card__informacao__nome">{{ guitar.modelo }}</p>

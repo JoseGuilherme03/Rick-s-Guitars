@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+
+
+<section class="container-form">
+    <form method="POST" action="{% url 'index' %}" class="form-cadastro-guitar" enctype="multipart/form-data"
+        name="cadastro-guitar">
+        {% csrf_token %}
+        <div>
+            {% for field in form.visible_fields %}
+            <label for="{{ field.id_for_label }}">{{field.label}}</label>
+            {{ field }} {% endfor %}
+        </div>
+        <br />
+        <input type="submit" class="btn btn-primary" value="Enviar" name="cadastra-guitar">
+    </form>
+</section>
+{% endblock %}

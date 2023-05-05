@@ -1,0 +1,17 @@
+{% load static %}
+<header class="cabecalho">
+  <a href="{% url 'index' %}" class="cabecalho__link">
+    <h1 class="cabecalho__titulo">Rick's Guitars</h1>
+  </a>
+  <nav>
+    <ul class="cabecalho__lista">
+      <li class="cabecalho__item">
+        <a href="{% url 'index' %}" class="cabecalho__link">Home</a>
+      </li>
+      <li class="cabecalho__item">
+        <a href="{% url 'cadastro_guitar' %}" class="cabecalho__link">New Item</a>
+      </li>
+    </ul>
+  </nav>
+
+</header>
