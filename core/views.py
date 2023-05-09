@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from core.models import Guitar
 from .forms import GuitarForm, CadastraGuitarForm
 
@@ -42,7 +42,8 @@ def cadastra_item(request):
     return render(request, "cadastro.html", {"form": form})
 
 
-def edita_item(request):
-    return render(request, "item.html")
+def edita_item(request, guitar_numero_serie):
+    guitar = get_object_or_404(Guitar, pk=guitar_numero_serie)
+    return render(request, "item.html", {"guitar": guitar})
 
 

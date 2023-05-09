@@ -24,7 +24,7 @@
     <ul class="cards__lista">
       {% if guitars %} {% for guitar in guitars %}
       <li class="card">
-        <a href="{% url 'item' %}">
+        <a href="{% url 'edita_item' guitar.numero_serie %}">
           <img src="{{ guitar.foto.url }}" alt="{{ guitar.modelo }}" class="card__imagem" />
         </a>
         <div class="card__informacao">
