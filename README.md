@@ -48,6 +48,11 @@ Inicie o servidor
   python manage.py runserver
 ```
 
+Acesse a url informada no terminal
+
+```bash
+  Por exemplo: http://127.0.0.1:8000/
+```
 
 ## Funcionalidades
 
