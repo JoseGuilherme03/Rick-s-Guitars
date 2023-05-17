@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 <section class="container-form">
-    <form method="POST" action="{% url 'index' %}" class="form-cadastro-guitar" enctype="multipart/form-data"
-        name="cadastro-guitar">
+    <form method="POST" action="{% url 'editar_item' numero_serie %}" class="form-cadastro-guitar"
+        enctype="multipart/form-data" name="cadastro-guitar">
         {% csrf_token %}
         <div>
             {% for field in form.visible_fields %}

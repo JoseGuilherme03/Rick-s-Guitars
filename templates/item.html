@@ -1,19 +1,25 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 <section class="conteudo">
     <div class="conteudo__item">
-        <img class="conteudo__item__img" src="{{guitar.foto.url}}" alt="">
+        {% if not guitar.foto %}
+        <img class="conteudo__item__img" src="{% static 'assets/imagens/img-vazia.png' %}" alt="imagem vazia">
+        {% else %}
+        <img class="conteudo__item__img" src="{{guitar.foto.url}}" alt="{{guitar.modelo}}">
+        {% endif %}
     </div>
     <div class="conteudo__container">
         <div class="conteudo__item-informacao">
-            <h2 class="titulo-itens">Modelo</h2>
+            <h2 class="titulo-itens">{{guitar.modelo}}</h2>
             <ul class="item-lista-informacao">
-                <li class="lista-informacao__item"></li>
-                <li class="lista-informacao__item">Descrição: sdadadas</li>
+                <li class="lista-informacao__item">Descrição do item</li>
+                <li class="lista-informacao__item">R$ {{guitar.preco}}</li>
             </ul>
         </div>
         <div class="conteudo__botoes">
-            <button class="btn btn-primary btn-lg">Editar</button>
-            <button class="btn btn-danger btn-lg">Excluir</button>
+            <a href="{% url 'editar_item' guitar.numero_serie %}"><button
+                    class="btn btn-primary btn-lg">Editar</button></a>
+            <a href="{% url 'deletar_item' guitar.numero_serie %}"><button
+                    class="btn btn-danger btn-lg">Excluir</button></a>
         </div>
     </div>
 </section>

@@ -42,8 +42,27 @@ def cadastra_item(request):
     return render(request, "cadastro.html", {"form": form})
 
 
-def edita_item(request, guitar_numero_serie):
+def item(request, guitar_numero_serie):
     guitar = get_object_or_404(Guitar, pk=guitar_numero_serie)
     return render(request, "item.html", {"guitar": guitar})
 
 
+def editar_item(request, guitar_numero_serie):
+    guitar = Guitar.objects.get(numero_serie=guitar_numero_serie)
+    form = CadastraGuitarForm(instance=guitar)
+
+    if request.method == "POST":
+        form = CadastraGuitarForm(request.POST, request.FILES, instance=guitar)
+        if form.is_valid():
+            form.save()
+            return redirect("index")
+
+    return render(
+        request, "editar_item.html", {"form": form, "numero_serie": guitar_numero_serie}
+    )
+
+
+def deletar_item(request, guitar_numero_serie):
+    guitar = Guitar.objects.get(numero_serie=guitar_numero_serie)
+    guitar.delete()
+    return redirect("index")
