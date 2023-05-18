@@ -42,6 +42,12 @@ Aplique a migração dos apps para a aplicação funcionar corretamente
   python manage.py migrate
 ```
 
+Você também pode cadastrar dois itens de exemplo na aplicação através de um script e editar o item como quiser.
+
+```bash
+  python script_guitarra.py
+```
+
 Inicie o servidor
 
 ```bash
