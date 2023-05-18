@@ -1,10 +1,10 @@
 
-# RICK'S GUITARS
+# RICK'S GUITARS 🎸
 
 Um Sistema de Gerenciamento de Estoque de uma loja de guitarras chamada Rick's Guitars. Projeto proposto durante a matéria de POO e implementado com o framework Django
 
 
-## Rodando localmente 
+## Rodando localmente 🛠️
 
 Clone o projeto
 
@@ -60,13 +60,13 @@ Acesse a url informada no terminal
   Por exemplo: http://127.0.0.1:8000/
 ```
 
-## Funcionalidades
+## Funcionalidades ⚙️
 
 - Cadastro, edição e exclusão de itens
 - Filtro por nome do item
 - Filtro personalizado com as especificações dos itens
 
 
-## Referência
+## Referência 🔗
 
  - Livro: https://g.co/kgs/8xDfvY
