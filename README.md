@@ -4,7 +4,7 @@
 Um Sistema de Gerenciamento de Estoque de uma loja de guitarras chamada Rick's Guitars. Projeto proposto durante a matéria de POO e implementado com o framework Django
 
 
-## Rodando localmente
+## Rodando localmente 
 
 Clone o projeto
 
